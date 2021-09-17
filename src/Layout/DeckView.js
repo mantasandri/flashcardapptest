@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useHistory, useParams, Link } from "react-router-dom"
 import { readDeck, deleteCard } from "../utils/api/index"
 
-
 function DeckView({deck, setDeck, setCards, cards}) {
     const {deckId} = useParams();
     const history = useHistory();
@@ -44,7 +43,7 @@ function DeckView({deck, setDeck, setCards, cards}) {
 
     const listOfCards = cards.map(card => {
         return (
-            <div className="card bg-light">
+            <div className="card bg-light" key={card.id}>
                 <div className="card-body">
                     <h6 className="card-subtitle">Front</h6>
                     <p className="card-text text-muted">{card.front}</p>
